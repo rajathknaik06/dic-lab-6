@@ -1,0 +1,115 @@
+""" Liam is analyzing a list of product IDs from a recent sales report. He needs to determine how frequently each product ID appears and calculate the following metrics:
+
+
+
+Frequency of each product ID: A dictionary where the key is the product ID and the value is the number of times it appears.
+Total number of unique product IDs.
+Average frequency of product IDs: The average count of all product IDs.
+
+
+Write a program to read the product IDs, compute these metrics, and output the results.
+
+
+
+Example
+
+
+
+Input:
+
+6       //number of product ID
+
+101
+
+102
+
+101
+
+103
+
+101
+
+102 //product IDs
+
+
+
+Output:
+
+{101: 3, 102: 2, 103: 1}
+
+Total Unique IDs: 3
+
+Average Frequency: 2.00
+
+
+
+Explanation:
+
+Input 6 indicates that you will enter 6 product IDs.
+
+A dictionary is created to track the frequency of each product ID.
+
+Input 101: Added with a frequency of 1.
+
+Input 102: Added with a frequency of 1.
+
+Input 101: Frequency of 101 increased to 2.
+
+Input 103: Added with a frequency of 1.
+
+Input 101: Frequency of 101 increased to 3.
+
+Input 102: Frequency of 102 increased to 2.
+
+The dictionary now contains 3 unique IDs: 101, 102, and 103.
+
+Total Unique is 3.
+
+The average frequency is 2.00.
+
+Input format :
+The first line of input consists of an integer n, representing the number of product IDs.
+
+The next n lines each contain a single integer, each representing a product ID.
+
+Output format :
+The first line of output displays the frequency dictionary, which maps each product ID to its count.
+
+The second line displays the total number of unique product IDs, preceded by "Total Unique IDs: ".
+
+The third line displays the average frequency of the product IDs. This is calculated by dividing the total number of occurrences of all product IDs by the total number of unique product IDs, rounded to two decimal places. It is preceded by "Average Frequency: ".
+
+"""
+
+
+
+# Read the number of product IDs
+n = int(input())
+
+# Initialize an empty dictionary to store frequencies
+freq_dict = {}
+
+# Read each product ID individually
+for _ in range(n):
+    # Read product ID
+    item = int(input())
+    
+    # Perform the computation using dictionary operations
+    if item in freq_dict:
+        freq_dict[item] += 1
+    else:
+        freq_dict[item] = 1
+
+# Compute total number of unique product IDs
+total_unique_ids = len(freq_dict)
+
+# Compute total frequency count
+total_frequency = sum(freq_dict.values())
+
+# Compute average frequency
+average_frequency = total_frequency / total_unique_ids if total_unique_ids > 0 else 0
+
+# Output the result in dictionary format and additional computations
+print(freq_dict)
+print(f"Total Unique IDs: {total_unique_ids}")
+print(f"Average Frequency: {average_frequency:.2f}")
